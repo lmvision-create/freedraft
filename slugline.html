@@ -291,32 +291,35 @@ const script=$('#script'), paper=$('#paper'), scaler=$('#scaler'), pagesEl=$('#p
 /* ---------- sample (original) ---------- */
 const SAMPLE=[
  ['transition','FADE IN:'],
- ['scene','INT. ALL-NIGHT LAUNDROMAT - NIGHT'],
- ['action','Fluorescent hum. Forty dryers, one of them turning.'],
- ['action',"ROSA (70s, house slippers, church earrings) folds a stranger's shirts with military precision."],
- ['action','The door chimes. TEO (20s, delivery jacket, soaked through) shuffles in holding a pizza box like evidence.'],
- ['character','TEO'],['dialogue','Somebody here order a large pepperoni?'],
- ['character','ROSA'],['paren','(not looking up)'],['dialogue',"Twelve years I've been coming here. Nobody orders anything."],
- ['character','TEO'],['dialogue','The app says this address.'],
- ['action','He checks his phone. Checks the room. Only one dryer is turning: number nine.'],
- ['character','ROSA'],['dialogue','Then the dryer is hungry.'],
- ['action','She takes the box, lifts out one slice, and lays it inside dryer nine like an offering. Shuts the door. It keeps turning.'],
- ['character','TEO'],['dialogue',"Ma'am. I need a signature."],
- ['character','ROSA'],['paren','(signing his screen)'],['dialogue','And I need you back Thursday. It likes mushrooms.'],
- ['action','Teo backs toward the door. Dryer nine stops. Its little light blinks twice.'],
- ['action','Teo stops too.'],
- ['character','TEO'],['dialogue','...What happens Thursday?'],
- ['transition','CUT TO:'],
- ['scene','INT. DELIVERY CAR - CONTINUOUS'],
- ['action','Rain on the windshield. Teo grips the wheel, not driving. His phone buzzes on the dash.'],
- ['action','NEW ORDER: 1 LARGE MUSHROOM. DELIVER TO: DRYER 9. TIP: $200.'],
- ['action','He looks back at the laundromat. Rosa waves from the window, slow, like a pageant queen.'],
- ['character','TEO'],['paren','(to himself)'],['dialogue','Two hundred.'],
- ['action','He puts the car in drive.'],
+ ['scene','INT. MARISOL\'S APARTMENT - NIGHT'],
+ ['action','Canvases lean against the wall, faces turned in, like kids being punished. A space heater ticks. Paint has dried in every jar.'],
+ ['action','MARISOL (40s, paint under her nails that never washes out) sits on the floor scrolling job listings on a cracked phone.'],
+ ['action','ON THE SCREEN: "Illustrator wanted. AI workflow required."'],
+ ['action','Swipe. "Concept artist. Must be fluent in AI tools."'],
+ ['action','Swipe. "Muralist." She sits up. "...AI mockups a plus."'],
+ ['character','MARISOL'],['paren','(to the phone)'],['dialogue','A plus. Like a tip.'],
+ ['action','An envelope slides under the door. Red letters: FINAL NOTICE.'],
+ ['action','On the couch, her nephew TOMAS (17, hoodie, cereal for dinner) watches her not open it.'],
+ ['character','TOMAS'],['dialogue','Just try it, Tia.'],
+ ['character','MARISOL'],['dialogue','Twenty-two years I spent learning how to see. And you want me to type.'],
+ ['character','TOMAS'],['dialogue','I want you to eat.'],
+ ['action','That lands. She pulls the laptop onto her knees. An empty prompt box. The cursor blinks at her like it\'s waiting for an apology.'],
+ ['action','She types: "a woman painting." Deletes it.'],
+ ['action','Types again: "my mother\'s hands on the bus out of Oaxaca, morning light through a dirty window."'],
+ ['action','Enter. Images bloom. Wrong. Wrong. Wrong. Then one that is almost right.'],
+ ['character','MARISOL'],['paren','(quiet)'],['dialogue','No. The light came from the other side.'],
+ ['action','She types the correction. Then another. Faster now. Leaning in.'],
+ ['character','TOMAS'],['dialogue','You\'re arguing with it.'],
+ ['character','MARISOL'],['dialogue','I\'m directing it.'],
+ ['action','The printer wheezes out the closest image. She tapes it to an easel, finds a brush that\'s been dry since spring, and starts painting over it, fixing everything the machine got wrong.'],
+ ['character','TOMAS'],['dialogue','So who made that? You or it?'],
+ ['character','MARISOL'],['paren','(not looking up)'],['dialogue','Ask me again when the rent\'s paid.'],
+ ['action','She picks up the FINAL NOTICE, flips it over, and starts sketching on the back.'],
+ ['transition','FADE OUT.'],
 ].map(([t,x])=>({t,x}));
 
 /* ---------- state ---------- */
-let doc={title:{title:'Dryer Nine',credit:'Written by',author:'',source:'',contact:'',date:''},sample:true,nums:false};
+let doc={title:{title:'Final Notice',credit:'Written by',author:'',source:'',contact:'',date:''},sample:true,nums:false};
 let zoomMode='auto', zoom=1, pageCount=1, positions=[], contdSet=new Set();
 let lastP=null, lastOff=0;
 
@@ -1081,7 +1084,7 @@ $('#askIn').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.
   if(innerWidth<=1100) $('#ai').hidden=true;
   if(innerWidth<=820) $('#nav').hidden=true;
   $('#tNav').setAttribute('aria-pressed',String(!$('#nav').hidden)); $('#tAI').setAttribute('aria-pressed',String(!$('#ai').hidden));
-  const saved=loadSaved();
+  let saved=loadSaved(); if(saved&&doc.sample){ saved=null; doc.title.title='Final Notice'; }
   renderBlocks(saved||SAMPLE.map(b=>({...b})));
   if(!saved) doc.sample=true;
   $('#banner').hidden=!doc.sample;
