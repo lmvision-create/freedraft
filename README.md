@@ -1,13 +1,13 @@
-# Slugline
+# FreeDraft
 
 A free screenwriting app with an AI writers' room. It is one file: no install, no account, no subscription.
 
-![Slugline editor with a sample script](docs/screenshot.jpg)
+![FreeDraft editor with a sample script](docs/screenshot.jpg)
 
 ## Get it
 
-- **Use it online:** https://lmvision-create.github.io/slugline/
-- **Download it:** [Slugline.html](https://github.com/lmvision-create/slugline/releases/latest/download/Slugline.html). Double-click the file to open it in your browser. It works offline except for the AI features.
+- **Use it online:** https://lmvision-create.github.io/freedraft/
+- **Download it:** [FreeDraft.html](https://github.com/lmvision-create/freedraft/releases/latest/download/FreeDraft.html). Double-click the file to open it in your browser. It works offline except for the AI features.
 
 ## What it does
 
@@ -48,6 +48,6 @@ The Writers' Room runs on Claude. Add your own [Anthropic API key](https://conso
 
 ## For developers
 
-`slugline.html` is the app. `./build.sh` wraps it into the standalone `index.html`. There's no build step beyond that and no dependencies to install. jsPDF, JSZip and the Anthropic SDK load from public CDNs.
+`freedraft.html` is the app. `./build.sh` wraps it into the standalone `index.html`. There's no build step beyond that and no dependencies to install. jsPDF, JSZip and the Anthropic SDK load from public CDNs.
 
-Slugline is an independent project and isn't affiliated with Final Draft or Cast & Crew. It's licensed under [MIT](LICENSE).
+FreeDraft is an independent project and isn't affiliated with Final Draft or Cast & Crew. It's licensed under [MIT](LICENSE).

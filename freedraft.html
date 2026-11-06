@@ -1,4 +1,4 @@
-<title>Slugline</title>
+<title>FreeDraft</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,7 +171,7 @@ kbd{font-family:var(--ui);font-size:10.5px;border:1px solid var(--line);border-b
 </style>
 
 <header class="bar">
-  <div class="brand">SLUGLINE<i>.</i></div>
+  <div class="brand">FREEDRAFT<i>.</i></div>
   <nav class="tools" aria-label="Script tools">
     <button class="btn" id="bNew">New</button>
     <button class="btn" id="bOpen">Open</button>
@@ -1032,7 +1032,7 @@ async function aiContinue(){
   const out=await ask(input,c,{},true); if(out==null) return; scriptResult(c,out,null);
 }
 function aiFormat(){
-  modal(`<h3>Format text as a screenplay</h3><p>Paste notes, prose, a treatment, or script text copied from a PDF or Word file. "Format with AI" turns it into proper screenplay elements. "Insert as-is" uses Slugline's own formatter and works offline.</p>
+  modal(`<h3>Format text as a screenplay</h3><p>Paste notes, prose, a treatment, or script text copied from a PDF or Word file. "Format with AI" turns it into proper screenplay elements. "Insert as-is" uses FreeDraft's own formatter and works offline.</p>
    <textarea class="big" id="fmtIn" placeholder="Rosa is folding laundry when a delivery guy walks in with a pizza nobody ordered…"></textarea>
    <div class="mact"><button class="btn line" data-close>Cancel</button><button class="btn line" id="fmtRaw">Insert as-is</button><button class="btn primary" id="fmtAI">Format with AI</button></div>`, b=>{
     b.querySelector('#fmtRaw').onclick=()=>{ const v=b.querySelector('#fmtIn').value; const bs=parseFountain(v).blocks; closeModal(); if(bs.length) insertBlocksAt(bs); };
